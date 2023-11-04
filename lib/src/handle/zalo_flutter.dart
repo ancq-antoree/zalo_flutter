@@ -143,114 +143,114 @@ class ZaloFlutter {
   }
 }
 
-/// * Sử dụng cho OA (đang nghiên cứu)
-/// * Use for OA (studying)
-class ZaloOAFlutter {
-  ZaloOAFlutter._();
-  static const MethodChannel channel = MethodChannel('zalo_flutter');
+// /// * Sử dụng cho OA (đang nghiên cứu)
+// /// * Use for OA (studying)
+// class ZaloOAFlutter {
+//   ZaloOAFlutter._();
+//   static const MethodChannel channel = MethodChannel('zalo_flutter');
 
-  /// * Lấy danh sách bạn bè (đã sử dụng ứng dụng)
-  /// * Get Zalo user friend list (used app)
-  /// * More info Android: https://developers.zalo.me/docs/sdk/android-sdk/open-api/lay-danh-sach-ban-be-post-437
-  /// * More info Ios: https://developers.zalo.me/docs/sdk/ios-sdk/open-api/lay-danh-sach-ban-be-zalo-post-5813
-  static Future<Map<dynamic, dynamic>?> getUserFriendList({
-    required String accessToken,
-    required int atOffset,
-    required int count,
-  }) async {
-    final Map<dynamic, dynamic>? rs = await channel.invokeMethod<Map<dynamic, dynamic>?>(
-      'getUserFriendList',
-      <String, dynamic>{
-        'accessToken': accessToken,
-        'atOffset': atOffset,
-        'count': count,
-      },
-    );
-    return rs;
-  }
+//   /// * Lấy danh sách bạn bè (đã sử dụng ứng dụng)
+//   /// * Get Zalo user friend list (used app)
+//   /// * More info Android: https://developers.zalo.me/docs/sdk/android-sdk/open-api/lay-danh-sach-ban-be-post-437
+//   /// * More info Ios: https://developers.zalo.me/docs/sdk/ios-sdk/open-api/lay-danh-sach-ban-be-zalo-post-5813
+//   static Future<Map<dynamic, dynamic>?> getUserFriendList({
+//     required String accessToken,
+//     required int atOffset,
+//     required int count,
+//   }) async {
+//     final Map<dynamic, dynamic>? rs = await channel.invokeMethod<Map<dynamic, dynamic>?>(
+//       'getUserFriendList',
+//       <String, dynamic>{
+//         'accessToken': accessToken,
+//         'atOffset': atOffset,
+//         'count': count,
+//       },
+//     );
+//     return rs;
+//   }
 
-  /// * Lấy danh sách bạn bè (chưa sử dụng ứng dụng)
-  /// * Get Zalo user friend list (not used app)
-  /// * More info Android: https://developers.zalo.me/docs/sdk/android-sdk/open-api/lay-danh-sach-ban-be-post-437
-  /// * More info Ios: https://developers.zalo.me/docs/sdk/ios-sdk/open-api/lay-danh-sach-ban-be-zalo-post-5813
-  static Future<Map<dynamic, dynamic>?> getUserInvitableFriendList({
-    required String accessToken,
-    required int atOffset,
-    required int count,
-  }) async {
-    final Map<dynamic, dynamic>? rs = await channel.invokeMethod<Map<dynamic, dynamic>?>(
-      'getUserInvitableFriendList',
-      <String, dynamic>{
-        'accessToken': accessToken,
-        'atOffset': atOffset,
-        'count': count,
-      },
-    );
-    return rs;
-  }
+//   /// * Lấy danh sách bạn bè (chưa sử dụng ứng dụng)
+//   /// * Get Zalo user friend list (not used app)
+//   /// * More info Android: https://developers.zalo.me/docs/sdk/android-sdk/open-api/lay-danh-sach-ban-be-post-437
+//   /// * More info Ios: https://developers.zalo.me/docs/sdk/ios-sdk/open-api/lay-danh-sach-ban-be-zalo-post-5813
+//   static Future<Map<dynamic, dynamic>?> getUserInvitableFriendList({
+//     required String accessToken,
+//     required int atOffset,
+//     required int count,
+//   }) async {
+//     final Map<dynamic, dynamic>? rs = await channel.invokeMethod<Map<dynamic, dynamic>?>(
+//       'getUserInvitableFriendList',
+//       <String, dynamic>{
+//         'accessToken': accessToken,
+//         'atOffset': atOffset,
+//         'count': count,
+//       },
+//     );
+//     return rs;
+//   }
 
-  /// * Gửi tin nhắn tới bạn bè
-  /// * Send message to a friend
-  /// * More info Android: https://developers.zalo.me/docs/sdk/android-sdk/open-api/gui-tin-nhan-toi-ban-be-post-1205
-  /// * More info Ios: https://developers.zalo.me/docs/sdk/ios-sdk/open-api/gui-tin-nhan-cho-ban-be-post-5825
-  static Future<Map<dynamic, dynamic>?> sendMessage({
-    required String accessToken,
-    required String to,
-    required String message,
-    String? link,
-  }) async {
-    final Map<dynamic, dynamic>? rs = await channel.invokeMethod<Map<dynamic, dynamic>?>(
-      'sendMessage',
-      <String, dynamic>{
-        'accessToken': accessToken,
-        'to': to,
-        'message': message,
-        'link': link,
-      },
-    );
-    return rs;
-  }
+//   /// * Gửi tin nhắn tới bạn bè
+//   /// * Send message to a friend
+//   /// * More info Android: https://developers.zalo.me/docs/sdk/android-sdk/open-api/gui-tin-nhan-toi-ban-be-post-1205
+//   /// * More info Ios: https://developers.zalo.me/docs/sdk/ios-sdk/open-api/gui-tin-nhan-cho-ban-be-post-5825
+//   static Future<Map<dynamic, dynamic>?> sendMessage({
+//     required String accessToken,
+//     required String to,
+//     required String message,
+//     String? link,
+//   }) async {
+//     final Map<dynamic, dynamic>? rs = await channel.invokeMethod<Map<dynamic, dynamic>?>(
+//       'sendMessage',
+//       <String, dynamic>{
+//         'accessToken': accessToken,
+//         'to': to,
+//         'message': message,
+//         'link': link,
+//       },
+//     );
+//     return rs;
+//   }
 
-  /// * Đăng bài viết
-  /// * Post feed
-  /// * More info Android: https://developers.zalo.me/docs/sdk/android-sdk/open-api/dang-bai-viet-post-1212
-  /// * More info Ios: https://developers.zalo.me/docs/sdk/ios-sdk/open-api/dang-bai-viet-post-1248
-  static Future<Map<dynamic, dynamic>?> postFeed({
-    required String accessToken,
-    required String message,
-    String? link,
-  }) async {
-    final Map<dynamic, dynamic>? rs = await channel.invokeMethod<Map<dynamic, dynamic>?>(
-      'postFeed',
-      <String, dynamic>{
-        'accessToken': accessToken,
-        'message': message,
-        'link': link,
-      },
-    );
-    return rs;
-  }
+//   /// * Đăng bài viết
+//   /// * Post feed
+//   /// * More info Android: https://developers.zalo.me/docs/sdk/android-sdk/open-api/dang-bai-viet-post-1212
+//   /// * More info Ios: https://developers.zalo.me/docs/sdk/ios-sdk/open-api/dang-bai-viet-post-1248
+//   static Future<Map<dynamic, dynamic>?> postFeed({
+//     required String accessToken,
+//     required String message,
+//     String? link,
+//   }) async {
+//     final Map<dynamic, dynamic>? rs = await channel.invokeMethod<Map<dynamic, dynamic>?>(
+//       'postFeed',
+//       <String, dynamic>{
+//         'accessToken': accessToken,
+//         'message': message,
+//         'link': link,
+//       },
+//     );
+//     return rs;
+//   }
 
-  /// * Mời sử dụng ứng dụng
-  /// * Send app request
-  /// * More info Android: https://developers.zalo.me/docs/sdk/android-sdk/open-api/moi-su-dung-ung-dung-post-1218
-  /// * More info Ios: https://developers.zalo.me/docs/sdk/ios-sdk/open-api/moi-su-dung-ung-dung-post-1251
-  static Future<Map<dynamic, dynamic>?> sendAppRequest({
-    required String accessToken,
-    required List<String> to,
-    required String message,
-  }) async {
-    final Map<dynamic, dynamic>? rs = await channel.invokeMethod<Map<dynamic, dynamic>?>(
-      'sendAppRequest',
-      <String, dynamic>{
-        'accessToken': accessToken,
-        'to': to,
-        'message': message,
-      },
-    );
-    return rs;
-  }
-}
+//   /// * Mời sử dụng ứng dụng
+//   /// * Send app request
+//   /// * More info Android: https://developers.zalo.me/docs/sdk/android-sdk/open-api/moi-su-dung-ung-dung-post-1218
+//   /// * More info Ios: https://developers.zalo.me/docs/sdk/ios-sdk/open-api/moi-su-dung-ung-dung-post-1251
+//   static Future<Map<dynamic, dynamic>?> sendAppRequest({
+//     required String accessToken,
+//     required List<String> to,
+//     required String message,
+//   }) async {
+//     final Map<dynamic, dynamic>? rs = await channel.invokeMethod<Map<dynamic, dynamic>?>(
+//       'sendAppRequest',
+//       <String, dynamic>{
+//         'accessToken': accessToken,
+//         'to': to,
+//         'message': message,
+//       },
+//     );
+//     return rs;
+//   }
+// }
 
 extension _InvokeMethodExt<T> on Future<T> {
   Future<T?> setTimeout(Duration timeout,
